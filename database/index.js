@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const db = mongoose.connect('mongodb://localhost/products');
+mongoose.connect('mongodb://localhost/products');
+const db = mongoose.connection;
 
 const productSchema = new mongoose.Schema({
   productId: Number,
