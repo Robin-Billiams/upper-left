@@ -25,7 +25,7 @@ const insertSampleImages = function() {
   database.product.create(sampleImages)
     .then(() => {
       console.log('success');
-      database.db.disconnect();
+
     })
     .catch((error) => { console.log('there was an error seeding the database: ', error); });
 };
