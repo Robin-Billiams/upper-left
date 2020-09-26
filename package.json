@@ -1,0 +1,26 @@
+{
+  "name": "upper-left",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node database/seed.js",
+    "start": "node server/index.js",
+    "client": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robin-Billiams/upper-left.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Robin-Billiams/upper-left/issues"
+  },
+  "homepage": "https://github.com/Robin-Billiams/upper-left#readme",
+  "dependencies": {
+    "mongoose": "^5.10.7"
+  }
+}
