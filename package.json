@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/Robin-Billiams/upper-left#readme",
   "dependencies": {
-    "mongoose": "^5.10.7"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
