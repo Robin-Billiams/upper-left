@@ -1,6 +1,7 @@
 const database  = require('./index.js');
 const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
-const sampleImages = [];
+let sampleProducts = [];
+let sampleImages = [];
 
 const NUMBER_OF_DIFFERENT_PRODUCTS = 5;
 const NUMBER_OF_PHOTOS_PER_PRODUCT = 10;
@@ -14,7 +15,7 @@ for (var i = 0; i < NUMBER_OF_DIFFERENT_PRODUCTS; i++) {
 }
 
 for (var i = 0; i < 99; i++) {
-  sampleImages.push( {
+  sampleProducts.push( {
     productId: i,
     imageUrls: sampleImages[i % NUMBER_OF_DIFFERENT_PRODUCTS]
   });
@@ -22,10 +23,9 @@ for (var i = 0; i < 99; i++) {
 
 
 const insertSampleImages = function() {
-  database.product.create(sampleImages)
+  database.product.create(sampleProducts)
     .then(() => {
       console.log('success');
-
     })
     .catch((error) => { console.log('there was an error seeding the database: ', error); });
 };

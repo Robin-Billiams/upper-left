@@ -23,7 +23,7 @@ let save = (obj, callback) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, data)
+      callback(null, data);
     }
   });
 }
@@ -34,7 +34,7 @@ let getAll = (callback) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, data)
+      callback(null, data);
     }
   });
 }
@@ -44,7 +44,7 @@ let getOne = (productId, callback) => {
     if (err) {
       callback(err);
     } else {
-      callback(null, data)
+      callback(null, data);
     }
   });
 }
@@ -57,4 +57,4 @@ module.exports = {
   getAll: getAll,
   getOne: getOne,
   deleteAll: deleteAll
-}
+};
