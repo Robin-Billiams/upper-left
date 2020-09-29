@@ -1,5 +1,6 @@
 const database  = require('./index.js');
 const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
+const AWS = require('aws-sdk');
 let sampleProducts = [];
 let sampleImages = [];
 

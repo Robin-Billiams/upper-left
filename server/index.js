@@ -5,6 +5,11 @@ const port = 3000
 const Products = require('../database/index.js');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.use(express.static('client/dist'))
 
 app.get('/:productId', function (req, res) {
 

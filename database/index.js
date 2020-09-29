@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/products');
+mongoose.connect('mongodb://localhost/products', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 
 const productSchema = new mongoose.Schema({
