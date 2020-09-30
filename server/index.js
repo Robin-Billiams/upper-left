@@ -11,47 +11,43 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static('client/dist'))
 
-app.get('/:productId', function (req, res) {
-
-  Products.getOne(req.params.productId, (err, data) => {
+app.get('/products/:productId', function (req, res) {
+  var productId = req.params.productId;
+  Products.getOne(productId, (err, data) => {
     if(err) {
       console.log('there was an error: ', err);
     } else {
-      res.send(data);
-      console.log('success! here is the data: ', data);
+      res.json(data);
     }
   });
 });
 
-app.get('/', function (req, res) {
+app.get('/server/', function (req, res) {
   Products.getAll((err, data) => {
     if(err) {
       console.log('there was an error: ', err);
     } else {
       res.send(data);
-      console.log('success! here is the data: ', data);
     }
   });
 });
 
-app.post('/', function (req, res) {
+app.post('/server/', function (req, res) {
   Products.save(req.body, (err, data) => {
     if(err) {
       console.log('there was an error: ', err);
     } else {
       res.send(data);
-      console.log('success! here is the data: ', data);
     }
   });
 });
 
-app.delete('/', function (req, res) {
+app.delete('/server/', function (req, res) {
   Products.deleteAll((err, data) => {
     if(err) {
       console.log('there was an error: ', err);
     } else {
       res.send(data);
-      console.log('success! here is the data: ', data);
     }
   });
 });

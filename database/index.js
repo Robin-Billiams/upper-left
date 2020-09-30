@@ -40,8 +40,8 @@ let getAll = (callback) => {
   });
 }
 
-let getOne = (productId, callback) => {
-  Product.findOneAndUpdate({productId: productId}, (err, data) => {
+let getOne = (prodId, callback) => {
+  Product.findOne({productId: prodId}, (err, data) => {
     if (err) {
       callback(err);
     } else {
