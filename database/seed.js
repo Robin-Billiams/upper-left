@@ -1,5 +1,6 @@
 const database  = require('./index.js');
 const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
+const AWS = require('aws-sdk');
 let sampleProducts = [];
 let sampleImages = [];
 
@@ -25,7 +26,6 @@ for (var i = 0; i < 99; i++) {
 const insertSampleImages = function() {
   database.product.create(sampleProducts)
     .then(() => {
-      console.log('success');
       database.db.close();
     })
     .catch((error) => { console.log('there was an error seeding the database: ', error); });
