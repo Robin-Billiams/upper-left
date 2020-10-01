@@ -4,7 +4,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   moduleFileExtensions: ['js', 'json', 'jsx'],
   setupFiles: ['<rootDir>/enzyme.config.js'],
-  testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   testMatch: ['**/test/**/*.js?(x)'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   testURL: 'http://localhost:3001',

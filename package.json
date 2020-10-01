@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest ./test/index.test.js",
+    "test-client": "./node_modules/.bin/jest ./test/client.test.js --detectOpenHandles",
+    "test-server": "./node_modules/.bin/jest ./test/server.test.js --detectOpenHandles --forceExit",
     "seed": "node database/seed.js",
-    "start": "node server/index.js",
+    "start": "node server/server.js",
     "client": "webpack -d --watch",
     "lint": "./node_modules/.bin/eslint ."
   },
@@ -30,9 +31,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
-  "pre-commit": [
-    "lint"
-  ],
+  "pre-commit": [ "lint", "test-server", "test-client" ],
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
@@ -52,6 +51,7 @@
     "jest": "^26.4.2",
     "pre-commit": "^1.2.2",
     "react-test-renderer": "^16.13.1",
+    "supertest": "^5.0.0",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12"
   }
