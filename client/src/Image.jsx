@@ -5,7 +5,7 @@ class Image extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 11,
+      productId: this.props.productId,
       images: []
     };
     this.fetch = this.fetch.bind(this);

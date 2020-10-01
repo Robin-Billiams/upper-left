@@ -33,18 +33,6 @@
   "pre-commit": [
     "lint"
   ],
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>enzyme.config.js"
-    ],
-    "verbose": true,
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/"
-    ]
-  },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
