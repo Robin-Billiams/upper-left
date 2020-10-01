@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser');
-const port = 3000
 const Products = require('../database/index.js');
 
 app.use(bodyParser.json());
@@ -52,6 +51,4 @@ app.delete('/server/', function (req, res) {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-})
+module.exports = app;

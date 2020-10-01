@@ -1,40 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
+import Image from './Image.jsx';
 
-class Image extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      productId: 11,
-      images: []
-    };
-    this.fetch = this.fetch.bind(this);
-  }
+const id = 0;
 
-  componentDidMount() {
-    this.fetch();
-  }
-
-  fetch() {
-    axios.get(`/products/${this.state.productId}`)
-      .then((response) => {
-        this.setState({
-          images: response.data.imageUrls
-        })
-      })
-      .catch((error) => {
-        console.log('There was an error: ', error);
-      });
-  }
-
-  render() {
-    return(
-      <div>
-        <img src={this.state.images[0]} width="500" height="600" />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<Image />, document.getElementById('app'));
+ReactDOM.render(<Image productId={id} />, document.getElementById('app'));
