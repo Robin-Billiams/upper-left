@@ -9,23 +9,16 @@ describe('dummy test to make sure jest is working', () => {
   });
 });
 
-describe('dummy tests to make sure enzyme is working', () => {
+describe('dummy test to make sure enzyme is working', () => {
   test('checks if shallowly rendered html is retrieved using .html()', () => {
     const myImage = shallow(<div>test</div>);
     expect(myImage.html()).toEqual('<div>test</div>');
   });
 
-
 });
 
 describe('it should render the correct image', () => {
-  test('should render an component of type Image', () => {
-    const myImage = shallow(<Image productId={0} />);
-    const instance = myImage.instance();
-    expect(instance).toBeInstanceOf(Image);
-  });
-
-  test('checks if an image is rendered', () => {
+  test('should render a component of type Image', () => {
     const myImage = shallow(<Image productId={0} />);
     const instance = myImage.instance();
     expect(instance).toBeInstanceOf(Image);
