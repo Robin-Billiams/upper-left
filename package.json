@@ -6,6 +6,7 @@
   "scripts": {
     "test-client": "./node_modules/.bin/jest ./test/client.test.js --detectOpenHandles",
     "test-server": "./node_modules/.bin/jest ./test/server.test.js --detectOpenHandles --forceExit",
+    "test": "jest",
     "seed": "node database/seed.js",
     "start": "node server/server.js",
     "client": "webpack -d --watch",
