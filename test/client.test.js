@@ -10,10 +10,20 @@ describe('dummy test to make sure jest is working', () => {
   });
 });
 
+describe('dummy test to make sure enzyme is working', () => {
+  test('checks if shallowly rendered html is retrieved using .html()', () => {
+    const myImage = shallow(<div></div>);
+    expect(myImage.html()).to.equal(<div></div>);
+  });
+});
+
 describe('it should fetch a url', () => {
-  test('checks if true is true', () => {
+  test('checks if contains img tag', () => {
     const myImage = shallow(<Image productId={0} />);
-    expect(myImage.props().children).not.toBe('test');
-    //I know this test doesn't make much sense; just happy to have the component rendering with no errors.
+    expect(myImage.html()).to.equal(
+      <div>
+        <img src="https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/0.jpg" width="500" height="600" />
+      </div>
+    );
   });
 });

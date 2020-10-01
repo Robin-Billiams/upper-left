@@ -2,4 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Image from './Image.jsx';
 
-ReactDOM.render(<Image productId={1}/>, document.getElementById('app'));
+const id = 0;
+
+ReactDOM.render(<Image productId={id}/>, document.getElementById('app'));
