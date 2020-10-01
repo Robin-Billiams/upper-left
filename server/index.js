@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const port = 3000
 const Products = require('../database/index.js');
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())))))});
 app.use(bodyParser.urlencoded({
   extended: true
 }));
