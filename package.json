@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest ./client/test/index.test.js",
+    "test": "./node_modules/.bin/jest ./test/index.test.js",
     "seed": "node database/seed.js",
     "start": "node server/index.js",
     "client": "webpack -d --watch",
@@ -35,16 +35,20 @@
   ],
   "jest": {
     "setupFilesAfterEnv": [
-      "<rootDir>client/test/index.test.js"
+      "<rootDir>enzyme.config.js"
     ],
     "verbose": true,
     "transform": {
       "^.+\\.js$": "babel-jest"
-    }
+    },
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-transform-modules-commonjs": "^7.10.4",
+    "@babel/polyfill": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "babel-jest": "^26.3.0",
