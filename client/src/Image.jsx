@@ -6,7 +6,7 @@ class Image extends React.Component {
     super(props);
     this.state = {
       productId: this.props.productId,
-      images: []
+      images: [],
     };
     this.fetch = this.fetch.bind(this);
   }
@@ -19,8 +19,8 @@ class Image extends React.Component {
     axios.get(`/products/${this.state.productId}`)
       .then((response) => {
         this.setState({
-          images: response.data.imageUrls
-        })
+          images: response.data.imageUrls,
+        });
       })
       .catch((error) => {
         console.log('There was an error: ', error);
@@ -28,9 +28,9 @@ class Image extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div>
-        <img src={this.state.images[0]} width="500" height="600" />
+        <img src={this.state.images[0]} alt="main product" width="500" height="600" />
       </div>
     );
   }

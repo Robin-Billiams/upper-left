@@ -4,4 +4,4 @@ import Image from './Image.jsx';
 
 const id = 0;
 
-ReactDOM.render(<Image productId={id}/>, document.getElementById('app'));
+ReactDOM.render(<Image productId={id} />, document.getElementById('app'));
