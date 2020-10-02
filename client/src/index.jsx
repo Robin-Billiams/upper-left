@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import './style.css';
 import Image from './Image.jsx';
 import Carousel from './Carousel.jsx';
 
@@ -54,9 +55,9 @@ class App extends React.Component {
   render() {
     const { images, currentImageIndex, position } = this.state;
     return (
-      <div>
-        <Image className="mainImage" image={images[currentImageIndex]} />
+      <div id="mainApp">
         <Carousel className="carousel" images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} />
+        <Image className="mainImage" image={images[currentImageIndex]} />
       </div>
     );
   }
