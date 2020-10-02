@@ -1,39 +1,18 @@
 import React from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 
-class Image extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      productId: this.props.productId,
-      images: [],
-    };
-    this.fetch = this.fetch.bind(this);
-  }
+const Image = (props) => {
+  const { image } = props;
 
-  componentDidMount() {
-    this.fetch();
-  }
+  return (
+    <div>
+      <img src={image} alt="main product" width="500" height="600" />
+    </div>
+  );
+};
 
-  fetch() {
-    axios.get(`/products/${this.state.productId}`)
-      .then((response) => {
-        this.setState({
-          images: response.data.imageUrls,
-        });
-      })
-      .catch((error) => {
-        console.log('There was an error: ', error);
-      });
-  }
-
-  render() {
-    return (
-      <div>
-        <img src={this.state.images[0]} alt="main product" width="500" height="600" />
-      </div>
-    );
-  }
-}
+Image.propTypes = {
+  image: PropTypes.string.isRequired,
+};
 
 export default Image;

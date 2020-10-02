@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-
+import Carousel from '../client/src/Carousel.jsx';
 import Image from '../client/src/Image.jsx';
 
 describe('dummy test to make sure jest is working', () => {
@@ -14,7 +14,6 @@ describe('dummy test to make sure enzyme is working', () => {
     const myImage = shallow(<div>test</div>);
     expect(myImage.html()).toEqual('<div>test</div>');
   });
-
 });
 
 describe('it should render the correct image', () => {
