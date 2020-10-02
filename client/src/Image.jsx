@@ -5,8 +5,8 @@ const Image = (props) => {
   const { image } = props;
 
   return (
-    <div>
-      <img src={image} alt="main product" width="500" height="600" />
+    <div id="imageModule">
+      <img id="mainImage" src={image} alt="main product" />
     </div>
   );
 };

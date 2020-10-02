@@ -13,7 +13,7 @@ const Carousel = (props) => {
   });
 
   return (
-    <div>
+    <div id="carouselModule">
       <button onClick={props.handleClickUp}>Up</button>
       {carouselImages}
       <button onClick={props.handleClickDown}>Down</button>

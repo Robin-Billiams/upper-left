@@ -56,8 +56,8 @@ class App extends React.Component {
     const { images, currentImageIndex, position } = this.state;
     return (
       <div id="mainApp">
-        <Carousel className="carousel" images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} />
-        <Image className="mainImage" image={images[currentImageIndex]} />
+        <Carousel images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} />
+        <Image image={images[currentImageIndex]} />
       </div>
     );
   }
