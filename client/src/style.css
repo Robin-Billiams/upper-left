@@ -57,9 +57,6 @@ img {
   align-self: center;
 }
 
-.spacer {
-  height: 1300px;
-}
 
 .carouselImageBox {
   border: var(--border-thickness) solid black;

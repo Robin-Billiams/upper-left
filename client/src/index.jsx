@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 0,
+      productId: 2,
       images: [],
       position: 4,
       currentImageIndex: 0,
@@ -39,19 +39,37 @@ class App extends React.Component {
   increasePosition() {
     const { position, images } = this.state;
     const max = images.length - 6;
+    const newPosition = position + 6 < max ? position + 6 : max;
     this.setState({
-      position: position + 6 < max ? position + 6 : max,
+      position: newPosition,
     });
-    document.getElementById(`image${position + 6 < max ? position + 6 : max}`).scrollIntoView({ behavior: 'smooth'});
+    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth'});
+
+    if (newPosition === max) {
+      document.getElementById('downArrow').classList.add('inactive');
+    }
+
+    if (newPosition !== 0) {
+      document.getElementById('upArrow').classList.remove('inactive');
+    }
   }
 
   decreasePosition() {
     const min = 0;
     const { position, images } = this.state;
+    const newPosition = position - 6 > min ? position - 6 : min
     this.setState({
-      position: position - 6 > min ? position - 6 : min,
+      position: newPosition,
     });
-    document.getElementById(`image${position - 6 > min ? position - 6 : min}`).scrollIntoView({ behavior: 'smooth'});
+    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth'});
+
+    if (newPosition === 0) {
+      document.getElementById('upArrow').classList.add('inactive');
+    }
+
+    if (newPosition !== images.length - 6) {
+      document.getElementById('downArrow').classList.remove('inactive');
+    }
   }
 
   render() {
