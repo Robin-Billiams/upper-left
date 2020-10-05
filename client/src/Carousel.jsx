@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import scrollToComponent from 'react-scroll-to-component';
 
 
 import CarouselImage from './CarouselImage.jsx';
