@@ -1,5 +1,4 @@
 html {
-
   --image-margin: 5px;
   --image-aspect-ratio: 1.25;
   --border-thickness: 1px;
@@ -7,7 +6,6 @@ html {
   --image-width: 9vw; /* calculated based on width of first column + width of #mainApp */
   --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
   --featured-image-max-width: 72vw;
-
 }
 
 /*make scrollbar in carousel transparent */
