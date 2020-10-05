@@ -42,6 +42,7 @@ class App extends React.Component {
     this.setState({
       position: position + 6 < max ? position + 6 : max,
     });
+    document.getElementById(`image${position + 6 < max ? position + 6 : max}`).scrollIntoView({ behavior: 'smooth'});
   }
 
   decreasePosition() {
@@ -50,6 +51,7 @@ class App extends React.Component {
     this.setState({
       position: position - 6 > min ? position - 6 : min,
     });
+    document.getElementById(`image${position - 6 > min ? position - 6 : min}`).scrollIntoView({ behavior: 'smooth'});
   }
 
   render() {
