@@ -1,19 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//had to make this a class so I could
-class CarouselImage extends React.Component {
-  render() {
-    const { image, isActive } = this.props;
 
-    return (
-      <div className="carouselImageBox" id={this.props.refProp}>
-        <img className="thumbnail" src={image} alt="product thumbnail" />
-      </div>
-
-    );
+const CarouselImage = (props) => {
+  const { image, isActive } = props;
+  let className = 'carouselImageBox';
+  if (!props.isActive) {
+    className += ' inactive';
   }
-
+  return (
+    <div className={className} id={props.refProp} >
+      <img className="thumbnail" src={image} alt="product thumbnail" />
+    </div>
+  );
 };
 
 CarouselImage.propTypes = {

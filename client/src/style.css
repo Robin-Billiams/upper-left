@@ -59,7 +59,7 @@ img {
 
 
 .carouselImageBox {
-  border: var(--border-thickness) solid black;
+  border: var(--border-thickness) solid grey;
   width: calc(var(--image-width) - (2 * var(--border-thickness)));
   height: var(--image-height);
   margin-top: 5px;
@@ -75,7 +75,7 @@ img {
 }
 
 .inactive {
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 #upArrow.inactive, #downArrow.inactive {
