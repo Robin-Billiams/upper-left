@@ -5,7 +5,10 @@ const CarouselImage = (props) => {
   const { image, isActive } = props;
 
   return (
-    <img src={image} alt="product thumbnail" />
+    <div className="carouselImageBox">
+      <img className="thumbnail" src={image} alt="product thumbnail" />
+    </div>
+
   );
 };
 

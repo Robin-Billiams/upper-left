@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as Scroll from 'react-scroll';
+import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+
 import CarouselImage from './CarouselImage.jsx';
 import upArrow from './assets/upArrow.png';
 import downArrow from './assets/downArrow.png';
 
+
 const Carousel = (props) => {
   const { images, activeImage, position, handleClickUp, handleClickDown } = props;
-
-
   const carouselImages = []; //jsxArray
 
-  images.slice(position, position + 6).forEach( (image, index) => {
+  images.forEach( (image, index) => {
     carouselImages.push(<CarouselImage isActive={activeImage === index} image={image} />);
   });
 
   return (
     <div id="carouselModule">
-      <img id="upArrow" class="inactive" src={upArrow} onClick={props.handleClickUp} />
-      {/* <button onClick={props.handleClickUp}>Up</button> */}
-      {carouselImages}
+      <img id="upArrow" className="inactive" src={upArrow} onClick={props.handleClickUp} />
+      <div id="carouselContainer">
+        {carouselImages}
+      </div>
       <img id="downArrow" src={downArrow} onClick={props.handleClickDown} />
-      {/* <button onClick={props.handleClickDown}>Down</button> */}
     </div>
   );
 };

@@ -1,3 +1,14 @@
+:root {
+
+  --image-margin: 5px;
+  --image-aspect-ratio: 1.25;
+  --border-thickness: 1px;
+  --number-of-images: 6;
+  --image-width: 9vw; /* calculated based on width of first column + width of #mainApp */
+  --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
+
+}
+
 #mainApp {
   display: grid;
   grid-template-columns: 10% 10% 80%;
@@ -6,17 +17,6 @@
   margin: auto;
   align-content: center;
   justify-content: center;
-}
-
-img {
-  max-width: 100%;
-  max-height: 100%;
-  align-self: center;
-}
-
-#upArrow, #downArrow {
-  max-width: 50%;
-  cursor: pointer;
 }
 
 #imageModule {
@@ -33,6 +33,35 @@ img {
   flex-direction: column;
   flex-wrap: nowrap;
   gap: 12px;
+
+}
+
+#carouselContainer {
+  max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
+  width: var(--image-width);
+  overflow-y: hidden;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+}
+
+.carouselImageBox {
+  border: var(--border-thickness) solid black;
+  width: calc(var(--image-width) - (2 * var(--border-thickness)));
+  height: var(--image-height);
+  margin-top: 5px;
+}
+
+.thumbnail {
+  object-fit: contain;
+}
+
+#upArrow, #downArrow {
+  max-width: 50%;
+  cursor: pointer;
 }
 
 .inactive {

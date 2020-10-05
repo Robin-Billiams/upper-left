@@ -11,7 +11,7 @@ class App extends React.Component {
     this.state = {
       productId: 0,
       images: [],
-      position: 0,
+      position: 4,
       currentImageIndex: 0,
     };
     this.fetch = this.fetch.bind(this);
@@ -46,7 +46,7 @@ class App extends React.Component {
 
   decreasePosition() {
     const min = 0;
-    const { position } = this.state;
+    const { position, images } = this.state;
     this.setState({
       position: position - 6 > min ? position - 6 : min,
     });
