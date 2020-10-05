@@ -9,33 +9,33 @@ describe('dummy test to make sure jest is working', () => {
 });
 
 describe('Test the root path', () => {
-  test('It should respond to GET request with status code 200', () =>
-    { return request(app)
-      .get("/")
+  test('It should respond to GET request with status code 200', () => { return
+    request(app)
+      .get('/')
       .then( (res) => {
         expect(res.statusCode).toBe(200);
-      });
-    });
-});
-
-describe("Test the /products/ path", () => {
-  test("It should respond to a GET request with status code 200", () => {
-    return request(app)
-      .get("/products/0")
-      .then( (res) => {
-        expect(res.statusCode).toBe(200);
-        expect(res.body.imageUrls[0]).toBe("https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/0.jpg");
       });
   });
 });
 
-describe("Test the /server/ path", () => {
-  test("It should respond to a GET request with status code 200", () => {
+describe('Test the /products/ path', () => {
+  test('It should respond to a GET request with status code 200', () => {
     return request(app)
-      .get(`/server/`)
+      .get('/products/0')
       .then( (res) => {
         expect(res.statusCode).toBe(200);
-        expect(res.body[0].imageUrls[0]).toBe("https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/0.jpg");
+        expect(res.body.imageUrls[0]).toBe('https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/0.jpg');
+      });
+  });
+});
+
+describe('Test the /server/ path', () => {
+  test('It should respond to a GET request with status code 200', () => {
+    return request(app)
+      .get('/server/')
+      .then( (res) => {
+        expect(res.statusCode).toBe(200);
+        expect(res.body[0].imageUrls[0]).toBe('https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/0.jpg');
       });
   });
 });

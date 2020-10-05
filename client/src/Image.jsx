@@ -1,39 +1,25 @@
-import React from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import PropTypes from 'prop-types';
 
-class Image extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      productId: this.props.productId,
-      images: [],
-    };
-    this.fetch = this.fetch.bind(this);
-  }
+const Image = (props) => {
+  const { image } = props;
+  const [zoom, setZoom] = useState(false);
 
-  componentDidMount() {
-    this.fetch();
-  }
+  const handleClick = (event) => {
+    setZoom(!zoom);
+  };
 
-  fetch() {
-    axios.get(`/products/${this.state.productId}`)
-      .then((response) => {
-        this.setState({
-          images: response.data.imageUrls,
-        });
-      })
-      .catch((error) => {
-        console.log('There was an error: ', error);
-      });
-  }
+  const className = zoom ? "zoomedIn" : "zoomedOut";
 
-  render() {
-    return (
-      <div>
-        <img src={this.state.images[0]} alt="main product" width="500" height="600" />
-      </div>
-    );
-  }
-}
+  return (
+    <div id="imageModule">
+      <img id="mainImage" src={image} alt="main product" className={className} onClick={handleClick} />
+    </div>
+  );
+};
+
+Image.propTypes = {
+  image: PropTypes.string.isRequired,
+};
 
 export default Image;
