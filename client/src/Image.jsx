@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
 const Image = (props) => {
   const { image } = props;
+  const [zoom, setZoom] = useState(false);
+
+  const handleClick = (event) => {
+    setZoom(!zoom);
+  };
+
+  const className = zoom ? "zoomedIn" : "zoomedOut";
 
   return (
     <div id="imageModule">
-      <img id="mainImage" src={image} alt="main product" />
+      <img id="mainImage" src={image} alt="main product" className={className} onClick={handleClick} />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Carousel = (props) => {
 
   images.forEach( (image, index) => {
     carouselImages.push(
-      <CarouselImage isActive={activeImage === index} image={image} refProp={`image${index}`} setActiveImage={setActiveImage} index={index} />
+      <CarouselImage isActive={activeImage === index} image={image} setActiveImage={setActiveImage} index={index} />
     );
   });
 
