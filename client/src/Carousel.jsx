@@ -8,12 +8,12 @@ import upArrow from './assets/upArrow.png';
 import downArrow from './assets/downArrow.png';
 
 const Carousel = (props) => {
-  const { images, activeImage, position, handleClickUp, handleClickDown } = props;
+  const { images, activeImage, position, handleClickUp, handleClickDown, setActiveImage } = props;
   const carouselImages = []; //jsxArray
 
   images.forEach( (image, index) => {
     carouselImages.push(
-      <CarouselImage isActive={activeImage === index} image={image} refProp={`image${index}`} />
+      <CarouselImage isActive={activeImage === index} image={image} refProp={`image${index}`} setActiveImage={setActiveImage} index={index} />
     );
   });
 
@@ -35,6 +35,7 @@ Carousel.propTypes = {
   activeImage: PropTypes.number.isRequired,
   handleClickUp: PropTypes.func.isRequired,
   handleClickDown: PropTypes.func.isRequired,
+  setActiveImage: PropTypes.func.isRequired,
 };
 
 export default Carousel;

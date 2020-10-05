@@ -57,12 +57,12 @@ img {
   align-self: center;
 }
 
-
 .carouselImageBox {
   border: var(--border-thickness) solid grey;
   width: calc(var(--image-width) - (2 * var(--border-thickness)));
   height: var(--image-height);
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .thumbnail {

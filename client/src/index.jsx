@@ -17,6 +17,7 @@ class App extends React.Component {
     this.fetch = this.fetch.bind(this);
     this.increasePosition = this.increasePosition.bind(this);
     this.decreasePosition = this.decreasePosition.bind(this);
+    this.setActiveImage = this.setActiveImage.bind(this);
   }
 
   componentDidMount() {
@@ -72,11 +73,17 @@ class App extends React.Component {
     }
   }
 
+  setActiveImage(index) {
+    this.setState({
+      currentImageIndex: index,
+    });
+  }
+
   render() {
     const { images, currentImageIndex, position } = this.state;
     return (
       <div id="mainApp">
-        <Carousel images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} />
+        <Carousel images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} setActiveImage={this.setActiveImage} />
         <Image image={images[currentImageIndex]} />
       </div>
     );
