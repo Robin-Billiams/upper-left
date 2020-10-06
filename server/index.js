@@ -5,10 +5,10 @@ const Products = require('../database/index.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
 }));
 
-app.use(express.static('client/dist'))
+app.use(express.static('client/dist'));
 
 app.get('/products/:productId', function (req, res) {
   var productId = req.params.productId;

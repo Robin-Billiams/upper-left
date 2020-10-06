@@ -9,7 +9,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      productId: 2,
       images: [],
       position: 4,
       currentImageIndex: 0,
@@ -21,11 +20,14 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetch();
+    if (window.location.search) {
+      this.fetch(window.location.search.slice(1));
+    } else {
+      this.fetch(0);
+    }
   }
 
-  fetch() {
-    const { productId } = this.state;
+  fetch(productId) {
     axios.get(`/products/${productId}`)
       .then((response) => {
         this.setState({
