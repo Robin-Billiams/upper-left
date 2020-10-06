@@ -15,7 +15,7 @@ for (var i = 0; i < NUMBER_OF_DIFFERENT_PRODUCTS; i++) {
   }
 }
 
-for (var i = 0; i < 99; i++) {
+for (var i = 0; i < 100; i++) {
   sampleProducts.push( {
     productId: i,
     imageUrls: sampleImages[i % NUMBER_OF_DIFFERENT_PRODUCTS]
