@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 import CarouselImage from './CarouselImage.jsx';
-import upArrow from './assets/upArrow.png';
-import downArrow from './assets/downArrow.png';
+const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
 
 const Carousel = (props) => {
   const { images, activeImage, position, handleClickUp, handleClickDown, setActiveImage } = props;
@@ -18,11 +16,11 @@ const Carousel = (props) => {
 
   return (
     <div id="carouselModule">
-      <img id="upArrow" className="inactive" src={upArrow} onClick={props.handleClickUp} />
+      <img id="upArrow" className="inactive" src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
       <div id="carouselContainer">
         {carouselImages}
       </div>
-      <img id="downArrow" src={downArrow} onClick={props.handleClickDown} />
+      <img id="downArrow" src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
     </div>
   );
 

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import './style.css';
-import Image from './Image.jsx';
-import Carousel from './Carousel.jsx';
+import Image from './components/Image.jsx';
+import Carousel from './components/Carousel.jsx';
 
 class UpperLeft extends React.Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class UpperLeft extends React.Component {
   }
 
   fetch(productId) {
-    axios.get(`/products/${productId}`)
+    axios.get(`http://localhost:3003/products/${productId}`)
       .then((response) => {
         this.setState({
           images: response.data.imageUrls,
@@ -60,11 +60,11 @@ class UpperLeft extends React.Component {
   decreasePosition() {
     const min = 0;
     const { position, images } = this.state;
-    const newPosition = position - 6 > min ? position - 6 : min
+    const newPosition = position - 6 > min ? position - 6 : min;
     this.setState({
       position: newPosition,
     });
-    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth'});
+    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth' });
 
     if (newPosition === 0) {
       document.getElementById('upArrow').classList.add('inactive');
@@ -92,4 +92,4 @@ class UpperLeft extends React.Component {
   }
 }
 
-ReactDOM.render(<UpperLeft />, document.getElementById('app'));
+ReactDOM.render(<UpperLeft />, document.getElementById('upperLeft'));
