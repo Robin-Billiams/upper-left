@@ -5,7 +5,7 @@ import './style.css';
 import Image from './Image.jsx';
 import Carousel from './Carousel.jsx';
 
-class App extends React.Component {
+class UpperLeft extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -92,4 +92,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<UpperLeft />, document.getElementById('app'));
