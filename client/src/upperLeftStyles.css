@@ -1,3 +1,13 @@
+.upperLeft {
+  display: grid;
+  grid-template-columns: 10% 10% 80%;
+  grid-template-rows: 100%;
+  width: 90%;
+  margin: auto;
+  align-content: center;
+  justify-content: center;
+}
+
 html {
   --image-margin: 5px;
   --image-aspect-ratio: 1.25;
@@ -14,17 +24,7 @@ html {
   background: transparent;
 }
 
-#mainApp {
-  display: grid;
-  grid-template-columns: 10% 10% 80%;
-  grid-template-rows: 100%;
-  width: 90%;
-  margin: auto;
-  align-content: center;
-  justify-content: center;
-}
-
-#imageModule {
+.upperLeft .imageModule {
   grid-column: 3;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ html {
   overflow: scroll;
 }
 
-#carouselModule {
+.upperLeft .carouselModule {
   grid-column: 1;
   display: flex;
   flex-direction: column;
@@ -44,19 +44,23 @@ html {
 
 }
 
-#carouselContainer {
+.upperLeft .carouselContainer {
   max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
   width: var(--image-width);
   overflow-y: scroll;
 }
 
-img {
+.upperLeft img {
   max-width: 100%;
   max-height: 100%;
   align-self: center;
 }
 
-.carouselImageBox {
+img {
+  border: 10px solid red;
+}
+
+.upperLeft .carouselImageBox {
   border: var(--border-thickness) solid grey;
   width: calc(var(--image-width) - (2 * var(--border-thickness)));
   height: var(--image-height);
@@ -64,36 +68,36 @@ img {
   cursor: pointer;
 }
 
-.thumbnail {
+.upperLeft .thumbnail {
   object-fit: contain;
 }
 
-#upArrow, #downArrow {
+.upperLeft .upArrow, .upperLeft .downArrow {
   max-width: 50%;
   cursor: pointer;
 }
 
-.inactive {
+.upperLeft .inactive {
   opacity: 0.3;
 }
 
-#upArrow.inactive, #downArrow.inactive {
+.upperLeft .upArrow.inactive, .upperLeft .downArrow.inactive {
   cursor: default;
 }
 
-#mainImage {
+.upperLeft .mainImage {
   transition: transform 0.2s;
   position: relative;
 }
 
-.zoomedOut:hover {
+.upperLeft .zoomedOut:hover {
   cursor: zoom-in;
 }
 
-.zoomedIn:hover {
+.upperLeft .zoomedIn:hover {
   cursor: zoom-out;
 }
 
-.zoomedIn {
+.upperLeft .zoomedIn {
   transform: scale(1.8);
 }

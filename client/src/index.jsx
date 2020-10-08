@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import './style.css';
+import styles from './upperLeftStyles.css';
 import Image from './components/Image.jsx';
 import Carousel from './components/Carousel.jsx';
 
@@ -49,11 +49,11 @@ class UpperLeft extends React.Component {
     document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth'});
 
     if (newPosition === max) {
-      document.getElementById('downArrow').classList.add('inactive');
+      document.getElementById('downArrow').classList.add(styles.inactive);
     }
 
     if (newPosition !== 0) {
-      document.getElementById('upArrow').classList.remove('inactive');
+      document.getElementById('upArrow').classList.remove(styles.inactive);
     }
   }
 
@@ -67,11 +67,11 @@ class UpperLeft extends React.Component {
     document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth' });
 
     if (newPosition === 0) {
-      document.getElementById('upArrow').classList.add('inactive');
+      document.getElementById('upArrow').classList.add(styles.inactive);
     }
 
     if (newPosition !== images.length - 6) {
-      document.getElementById('downArrow').classList.remove('inactive');
+      document.getElementById('downArrow').classList.remove(styles.inactive);
     }
   }
 
@@ -84,7 +84,7 @@ class UpperLeft extends React.Component {
   render() {
     const { images, currentImageIndex, position } = this.state;
     return (
-      <div id="mainApp">
+      <div className={styles.upperLeft}>
         <Carousel images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} setActiveImage={this.setActiveImage} />
         <Image image={images[currentImageIndex]} />
       </div>
