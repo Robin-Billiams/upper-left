@@ -56,6 +56,10 @@ html {
   align-self: center;
 }
 
+img {
+  border: 10px solid red;
+}
+
 .upperLeft .carouselImageBox {
   border: var(--border-thickness) solid grey;
   width: calc(var(--image-width) - (2 * var(--border-thickness)));
