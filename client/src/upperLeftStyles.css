@@ -1,0 +1,99 @@
+.upperLeft {
+  display: grid;
+  grid-template-columns: 10% 10% 80%;
+  grid-template-rows: 100%;
+  width: 90%;
+  margin: auto;
+  align-content: center;
+  justify-content: center;
+}
+
+html {
+  --image-margin: 5px;
+  --image-aspect-ratio: 1.25;
+  --border-thickness: 1px;
+  --number-of-images: 6;
+  --image-width: 9vw; /* calculated based on width of first column + width of #mainApp */
+  --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
+  --featured-image-max-width: 72vw;
+}
+
+/*make scrollbar in carousel transparent */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.upperLeft .imageModule {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: var(--featured-image-max-width);
+  max-height: var(--featured-image-max-width);
+  overflow: scroll;
+}
+
+.upperLeft .carouselModule {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 12px;
+
+}
+
+.upperLeft .carouselContainer {
+  max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
+  width: var(--image-width);
+  overflow-y: scroll;
+}
+
+.upperLeft img {
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+}
+
+.upperLeft .carouselImageBox {
+  border: var(--border-thickness) solid grey;
+  width: calc(var(--image-width) - (2 * var(--border-thickness)));
+  height: var(--image-height);
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.upperLeft .thumbnail {
+  object-fit: contain;
+}
+
+.upperLeft .upArrow, .upperLeft .downArrow {
+  max-width: 50%;
+  cursor: pointer;
+}
+
+.upperLeft .inactive {
+  opacity: 0.3;
+}
+
+.upperLeft .upArrow.inactive, .upperLeft .downArrow.inactive {
+  cursor: default;
+}
+
+.upperLeft .mainImage {
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.upperLeft .zoomedOut:hover {
+  cursor: zoom-in;
+}
+
+.upperLeft .zoomedIn:hover {
+  cursor: zoom-out;
+}
+
+.upperLeft .zoomedIn {
+  transform: scale(1.8);
+}

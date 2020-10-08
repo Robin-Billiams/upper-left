@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
-import styles from '../style.css';
+import styles from '../upperLeftStyles.css';
 
 const Image = (props) => {
   const { image } = props;
