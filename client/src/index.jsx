@@ -64,7 +64,7 @@ class UpperLeft extends React.Component {
     this.setState({
       position: newPosition,
     });
-    document.getElementById(styles.[`image${newPosition}`]).scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth' });
 
     if (newPosition === 0) {
       document.getElementById(styles.upArrow).classList.add(styles.inactive);
@@ -84,7 +84,7 @@ class UpperLeft extends React.Component {
   render() {
     const { images, currentImageIndex, position } = this.state;
     return (
-      <div id="mainApp">
+      <div className="mainApp">
         <Carousel images={images} position={position} activeImage={currentImageIndex} handleClickUp={this.decreasePosition} handleClickDown={this.increasePosition} setActiveImage={this.setActiveImage} />
         <Image image={images[currentImageIndex]} />
       </div>

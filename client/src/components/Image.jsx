@@ -13,8 +13,8 @@ const Image = (props) => {
   const className = zoom ? styles.zoomedIn : styles.zoomedOut;
 
   return (
-    <div id={styles.imageModule}>
-      <img id={styles.mainImage} src={image} alt="main product" className={className} onClick={handleClick} />
+    <div className={styles.imageModule}>
+      <img className={styles.mainImage} src={image} alt="main product" className={className} onClick={handleClick} />
     </div>
   );
 };

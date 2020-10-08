@@ -16,12 +16,12 @@ const Carousel = (props) => {
   });
 
   return (
-    <div id={styles.carouselModule}>
-      <img id={styles.upArrow} className={styles.inactive} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
-      <div id={styles.carouselContainer}>
+    <div className={styles.carouselModule}>
+      <img className={styles.upArrow} className={styles.inactive} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
+      <div className={styles.carouselContainer}>
         {carouselImages}
       </div>
-      <img id={styles.downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
+      <img className={styles.downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
     </div>
   );
 
