@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import './style.css';
+import styles from './style.css';
 import Image from './components/Image.jsx';
 import Carousel from './components/Carousel.jsx';
 
@@ -46,14 +46,14 @@ class UpperLeft extends React.Component {
     this.setState({
       position: newPosition,
     });
-    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth'});
+    document.getElementById(styles[`image${newPosition}`]).scrollIntoView({ behavior: 'smooth'});
 
     if (newPosition === max) {
-      document.getElementById('downArrow').classList.add('inactive');
+      document.getElementById(styles.downArrow).classList.add(styles.inactive);
     }
 
     if (newPosition !== 0) {
-      document.getElementById('upArrow').classList.remove('inactive');
+      document.getElementById(styles.upArrow).classList.remove(styles.inactive);
     }
   }
 
@@ -64,14 +64,14 @@ class UpperLeft extends React.Component {
     this.setState({
       position: newPosition,
     });
-    document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(styles.[`image${newPosition}`]).scrollIntoView({ behavior: 'smooth' });
 
     if (newPosition === 0) {
-      document.getElementById('upArrow').classList.add('inactive');
+      document.getElementById(styles.upArrow).classList.add(styles.inactive);
     }
 
     if (newPosition !== images.length - 6) {
-      document.getElementById('downArrow').classList.remove('inactive');
+      document.getElementById(styles.downArrow).classList.remove(styles.inactive);
     }
   }
 

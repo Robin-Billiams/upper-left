@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
+import styles from '../style.css';
 
 const Image = (props) => {
   const { image } = props;
@@ -9,11 +10,11 @@ const Image = (props) => {
     setZoom(!zoom);
   };
 
-  const className = zoom ? "zoomedIn" : "zoomedOut";
+  const className = zoom ? styles.zoomedIn : styles.zoomedOut;
 
   return (
-    <div id="imageModule">
-      <img id="mainImage" src={image} alt="main product" className={className} onClick={handleClick} />
+    <div id={styles.imageModule}>
+      <img id={styles.mainImage} src={image} alt="main product" className={className} onClick={handleClick} />
     </div>
   );
 };

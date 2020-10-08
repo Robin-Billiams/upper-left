@@ -1,99 +1,105 @@
-html {
-  --image-margin: 5px;
-  --image-aspect-ratio: 1.25;
-  --border-thickness: 1px;
-  --number-of-images: 6;
-  --image-width: 9vw; /* calculated based on width of first column + width of #mainApp */
-  --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
-  --featured-image-max-width: 72vw;
-}
+:global {
+  html {
+    --image-margin: 5px;
+    --image-aspect-ratio: 1.25;
+    --border-thickness: 1px;
+    --number-of-images: 6;
+    --image-width: 9vw; /* calculated based on width of first column + width of #mainApp */
+    --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
+    --featured-image-max-width: 72vw;
+  }
 
-/*make scrollbar in carousel transparent */
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
+  /*make scrollbar in carousel transparent */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 
-#mainApp {
-  display: grid;
-  grid-template-columns: 10% 10% 80%;
-  grid-template-rows: 100%;
-  width: 90%;
-  margin: auto;
-  align-content: center;
-  justify-content: center;
-}
+  #mainApp {
+    display: grid;
+    grid-template-columns: 10% 10% 80%;
+    grid-template-rows: 100%;
+    width: 90%;
+    margin: auto;
+    align-content: center;
+    justify-content: center;
+  }
 
-#imageModule {
-  grid-column: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: var(--featured-image-max-width);
-  max-height: var(--featured-image-max-width);
-  overflow: scroll;
-}
+  #imageModule {
+    grid-column: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: var(--featured-image-max-width);
+    max-height: var(--featured-image-max-width);
+    overflow: scroll;
+  }
 
-#carouselModule {
-  grid-column: 1;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 12px;
+  #carouselModule {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 12px;
 
-}
+  }
 
-#carouselContainer {
-  max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
-  width: var(--image-width);
-  overflow-y: scroll;
-}
+  body {
+    background-color: red;
+  }
 
-img {
-  max-width: 100%;
-  max-height: 100%;
-  align-self: center;
-}
+  #carouselContainer {
+    max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
+    width: var(--image-width);
+    overflow-y: scroll;
+  }
 
-.carouselImageBox {
-  border: var(--border-thickness) solid grey;
-  width: calc(var(--image-width) - (2 * var(--border-thickness)));
-  height: var(--image-height);
-  margin-top: 5px;
-  cursor: pointer;
-}
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    align-self: center;
+  }
 
-.thumbnail {
-  object-fit: contain;
-}
+  .carouselImageBox {
+    border: var(--border-thickness) solid grey;
+    width: calc(var(--image-width) - (2 * var(--border-thickness)));
+    height: var(--image-height);
+    margin-top: 5px;
+    cursor: pointer;
+  }
 
-#upArrow, #downArrow {
-  max-width: 50%;
-  cursor: pointer;
-}
+  .thumbnail {
+    object-fit: contain;
+  }
 
-.inactive {
-  opacity: 0.3;
-}
+  #upArrow, #downArrow {
+    max-width: 50%;
+    cursor: pointer;
+  }
 
-#upArrow.inactive, #downArrow.inactive {
-  cursor: default;
-}
+  .inactive {
+    opacity: 0.3;
+  }
 
-#mainImage {
-  transition: transform 0.2s;
-  position: relative;
-}
+  #upArrow.inactive, #downArrow.inactive {
+    cursor: default;
+  }
 
-.zoomedOut:hover {
-  cursor: zoom-in;
-}
+  #mainImage {
+    transition: transform 0.2s;
+    position: relative;
+  }
 
-.zoomedIn:hover {
-  cursor: zoom-out;
-}
+  .zoomedOut:hover {
+    cursor: zoom-in;
+  }
 
-.zoomedIn {
-  transform: scale(1.8);
+  .zoomedIn:hover {
+    cursor: zoom-out;
+  }
+
+  .zoomedIn {
+    transform: scale(1.8);
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../style.css';
 
 import CarouselImage from './CarouselImage.jsx';
 const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
@@ -15,12 +16,12 @@ const Carousel = (props) => {
   });
 
   return (
-    <div id="carouselModule">
-      <img id="upArrow" className="inactive" src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
-      <div id="carouselContainer">
+    <div id={styles.carouselModule}>
+      <img id={styles.upArrow} className={styles.inactive} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
+      <div id={styles.carouselContainer}>
         {carouselImages}
       </div>
-      <img id="downArrow" src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
+      <img id={styles.downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
     </div>
   );
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../style.css';
 
 
 const CarouselImage = (props) => {
@@ -9,7 +10,7 @@ const CarouselImage = (props) => {
     className += ' inactive';
   }
   return (
-    <div className={className} id={`image${index}`} onClick={()=> {setActiveImage(index)}}>
+    <div className={className} id={styles[`image${index}`]} onClick={()=> {setActiveImage(index)}}>
       <img className="thumbnail" src={image} alt="product thumbnail" />
     </div>
   );
