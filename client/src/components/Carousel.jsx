@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../upperLeftStyles.css';
+import { carouselModule, upArrow, downArrow, inactive, carouselContainer } from '../styles.css';
+
 
 import CarouselImage from './CarouselImage.jsx';
 const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
@@ -11,17 +12,17 @@ const Carousel = (props) => {
 
   images.forEach((image, index) => {
     carouselImages.push(
-      <CarouselImage isActive={activeImage === index} image={image} setActiveImage={setActiveImage} index={index} />
+      <CarouselImage isActive={activeImage === index} image={image} key={`image${index}`} setActiveImage={setActiveImage} index={index} />
     );
   });
 
   return (
-    <div className={styles.carouselModule}>
-      <img id="upArrow" className={`${styles.upArrow} ${styles.inactive}`} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
-      <div className={styles.carouselContainer}>
+    <div className={carouselModule}>
+      <img id="upArrow" className={`${upArrow} ${inactive}`} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
+      <div className={carouselContainer}>
         {carouselImages}
       </div>
-      <img id="downArrow" className={styles.downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
+      <img id="downArrow" className={downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
     </div>
   );
 

@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from '../upperLeftStyles.css';
+import { carouselImageBox, inactive, thumbnail } from '../styles.css';
 
 
 const CarouselImage = (props) => {
   const { image, isActive, setActiveImage, index } = props;
-  let className = styles.carouselImageBox;
+  let className = carouselImageBox;
   if (!isActive) {
-    className += ` ${styles.inactive}`;
+    className += ` ${inactive}`;
   }
   return (
     <div className={className} id={`image${index}`} onClick={()=> {setActiveImage(index)}}>
-      <img className={styles.thumbnail} src={image} alt="product thumbnail" />
+      <img className={thumbnail} src={image} alt="product thumbnail" />
     </div>
   );
 };

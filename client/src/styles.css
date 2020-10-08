@@ -24,7 +24,7 @@ html {
   background: transparent;
 }
 
-.upperLeft .imageModule {
+.imageModule {
   grid-column: 3;
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ html {
   overflow: scroll;
 }
 
-.upperLeft .carouselModule {
+.carouselModule {
   grid-column: 1;
   display: flex;
   flex-direction: column;
@@ -44,23 +44,19 @@ html {
 
 }
 
-.upperLeft .carouselContainer {
+.carouselContainer {
   max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
   width: var(--image-width);
   overflow-y: scroll;
 }
 
-.upperLeft img {
+img {
   max-width: 100%;
   max-height: 100%;
   align-self: center;
 }
 
-img {
-  border: 10px solid red;
-}
-
-.upperLeft .carouselImageBox {
+.carouselImageBox {
   border: var(--border-thickness) solid grey;
   width: calc(var(--image-width) - (2 * var(--border-thickness)));
   height: var(--image-height);
@@ -68,36 +64,36 @@ img {
   cursor: pointer;
 }
 
-.upperLeft .thumbnail {
+.thumbnail {
   object-fit: contain;
 }
 
-.upperLeft .upArrow, .upperLeft .downArrow {
+.upArrow, .downArrow {
   max-width: 50%;
   cursor: pointer;
 }
 
-.upperLeft .inactive {
+.inactive {
   opacity: 0.3;
 }
 
-.upperLeft .upArrow.inactive, .upperLeft .downArrow.inactive {
+.upArrow.inactive, .downArrow.inactive {
   cursor: default;
 }
 
-.upperLeft .mainImage {
+.mainImage {
   transition: transform 0.2s;
   position: relative;
 }
 
-.upperLeft .zoomedOut:hover {
+.zoomedOut:hover {
   cursor: zoom-in;
 }
 
-.upperLeft .zoomedIn:hover {
+.zoomedIn:hover {
   cursor: zoom-out;
 }
 
-.upperLeft .zoomedIn {
+.zoomedIn {
   transform: scale(1.8);
 }
