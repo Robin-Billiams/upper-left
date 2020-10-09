@@ -13,9 +13,10 @@ html {
   --image-aspect-ratio: 1.25;
   --border-thickness: 1px;
   --number-of-images: 6;
-  --image-width: 9vw; /* calculated based on width of first column + width of #mainApp */
+  --image-width: 9vw; /* calculated based on width of first column + width of .upperLeft */
   --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
   --featured-image-max-width: 72vw;
+
 }
 
 /*make scrollbar in carousel transparent */
@@ -44,10 +45,10 @@ html {
 
 }
 
+
 .upperLeft__styles__carouselContainer {
-  max-height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
+  height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
   width: var(--image-width);
-  overflow-y: scroll;
 }
 
 img {
@@ -71,6 +72,7 @@ img {
 .upperLeft__styles__upArrow, .upperLeft__styles__downArrow {
   max-width: 50%;
   cursor: pointer;
+  align-self: center;
 }
 
 .upperLeft__styles__inactive {

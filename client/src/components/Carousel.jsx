@@ -1,32 +1,83 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types';
 import { carouselModule, upArrow, downArrow, inactive, carouselContainer } from '../styles.css';
-
-
+import { Virtuoso } from 'react-virtuoso'
 import CarouselImage from './CarouselImage.jsx';
 const SRC_URL = 'https://hrr48madisonfecbrazil.s3-sa-east-1.amazonaws.com/';
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
+
+//variables needed for CSS rendering
+const imageMargin = '5 px';
+const imageAspectRatio = '1.25';
+const borderThickness = '1 px';
+const numberOfImages = '6';
+
 const Carousel = (props) => {
+  const { height, width } = useWindowDimensions();
   const { images, activeImage, position, handleClickUp, handleClickDown, setActiveImage } = props;
-  const carouselImages = []; //jsxArray
+  const GenerateImage = (index) => {
+    return <CarouselImage isActive={activeImage === index} image={images[index]} key={`image${index}`} setActiveImage={setActiveImage} index={index} />
+  }
 
-  images.forEach((image, index) => {
-    carouselImages.push(
-      <CarouselImage isActive={activeImage === index} image={image} key={`image${index}`} setActiveImage={setActiveImage} index={index} />
-    );
-  });
-
+  const virtuoso = useRef(null);
   return (
-    <div className={carouselModule}>
-      <img id="upArrow" className={`${upArrow} ${inactive}`} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={props.handleClickUp} />
-      <div className={carouselContainer}>
-        {carouselImages}
+    <div style={{ display: 'flex' }} className={carouselModule}>
+      <img id="upArrow" className={`${upArrow} ${inactive}`} src={SRC_URL + 'upArrow.png'} alt = "up Arrow" onClick={() => {
+          const min = 0;
+          const newPosition = position - 6 > min ? position - 6 : min;
+          virtuoso.current.scrollToIndex({
+            index: newPosition,
+            align: 'start',
+            behavior: 'smooth',
+          });
+          props.handleClickUp(newPosition);
+          return false;
+        }} />
+      <div>
+        <Virtuoso
+          className={carouselContainer}
+          totalCount={images.length}
+          ref={virtuoso}
+          item={GenerateImage}
+          style={{ height: `calc(( (${width} * 0.09 / ${imageAspectRatio}) + ${imageMargin} + ( 2 * ${borderThickness} ) ) * ${numberOfImages})`, width: `calc( ${width} * 0.09 )` }}
+        />
       </div>
-      <img id="downArrow" className={downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={props.handleClickDown} />
+      <img id="downArrow" className={downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={() => {
+        const max = images.length - 6;
+        const newPosition = position + 6 < max ? position + 6 : max;
+          virtuoso.current.scrollToIndex({
+            index: newPosition,
+            align: 'start',
+            behavior: 'smooth',
+          });
+          props.handleClickDown(newPosition);
+          return false;
+        }} />
     </div>
   );
-
-
 };
 
 Carousel.propTypes = {
@@ -38,3 +89,5 @@ Carousel.propTypes = {
 };
 
 export default Carousel;
+
+

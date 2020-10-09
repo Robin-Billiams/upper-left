@@ -4,7 +4,6 @@ import axios from 'axios';
 import { upperLeft, inactive } from './styles.css';
 import Image from './components/Image.jsx';
 import Carousel from './components/Carousel.jsx';
-import scrollToComponent from 'react-scroll-to-component';
 
 class UpperLeft extends React.Component {
   constructor(props) {
@@ -28,6 +27,12 @@ class UpperLeft extends React.Component {
     }
   }
 
+  setActiveImage(index) {
+    this.setState({
+      currentImageIndex: index,
+    });
+  }
+
   fetch(productId) {
     axios.get(`http://localhost:3003/products/${productId}`)
       .then((response) => {
@@ -40,15 +45,15 @@ class UpperLeft extends React.Component {
       });
   }
 
-  increasePosition() {
+  increasePosition(newPosition) {
     const { position, images } = this.state;
     const max = images.length - 6;
-    const newPosition = position + 6 < max ? position + 6 : max;
+    // const newPosition = position + 6 < max ? position + 6 : max;
     this.setState({
       position: newPosition,
     });
-    scrollToComponent(document.getElementById(`image${newPosition}`), { offset: 0, align: 'top', duration: 500, ease:'inCirc'});
-    // document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth'});
+    // scrollToComponent(document.getElementById(`image${newPosition}`), { offset: 0, align: 'top', duration: 500, ease:'inCirc'});
+    // document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
     if (newPosition === max) {
       document.getElementById('downArrow').classList.add(inactive);
@@ -59,15 +64,17 @@ class UpperLeft extends React.Component {
     }
   }
 
-  decreasePosition() {
+  decreasePosition(newPosition) {
     const min = 0;
     const { position, images } = this.state;
-    const newPosition = position - 6 > min ? position - 6 : min;
+    // const newPosition = position - 6 > min ? position - 6 : min;
     this.setState({
       position: newPosition,
     });
-    scrollToComponent(document.getElementById(`image${newPosition}`), { offset: 0, align: 'top', duration: 500, ease:'inCirc'});
-    // document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth' });
+    // scrollToComponent(document.getElementById(`image${newPosition}`), { offset: 0, align: 'top', duration: 500, ease:'inCirc'});
+    // document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+    // document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // document.getElementsByTagName('body')[0].style.overflow = 'scroll';
 
     if (newPosition === 0) {
       document.getElementById('upArrow').classList.add(inactive);
@@ -76,12 +83,6 @@ class UpperLeft extends React.Component {
     if (newPosition !== images.length - 6) {
       document.getElementById('downArrow').classList.remove(inactive);
     }
-  }
-
-  setActiveImage(index) {
-    this.setState({
-      currentImageIndex: index,
-    });
   }
 
   render() {
