@@ -27,7 +27,7 @@ function useWindowDimensions() {
 
   return windowDimensions;
 }
-
+// height: `calc(( (${width} * 0.09 / ${imageAspectRatio}) + ${imageMargin} + ( 2 * ${borderThickness} ) ) * ${numberOfImages})`,
 
 //variables needed for CSS rendering
 const imageMargin = '5 px';
@@ -56,13 +56,14 @@ const Carousel = (props) => {
           props.handleClickUp(newPosition);
           return false;
         }} />
+
       <div>
         <Virtuoso
           className={carouselContainer}
           totalCount={images.length}
           ref={virtuoso}
           item={GenerateImage}
-          style={{ height: `calc(( (${width} * 0.09 / ${imageAspectRatio}) + ${imageMargin} + ( 2 * ${borderThickness} ) ) * ${numberOfImages})`, width: `calc( ${width} * 0.09 )` }}
+          style={{ maxWidth: `calc( ${width} * 0.09 )` }}
         />
       </div>
       <img id="downArrow" className={downArrow} src={SRC_URL + 'downArrow.png'} alt = "down Arrow" onClick={() => {

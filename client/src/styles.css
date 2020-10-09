@@ -1,7 +1,8 @@
 .upperLeft {
   display: grid;
-  grid-template-columns: 10% 10% 80%;
+  grid-template-columns: 20% 80%;
   grid-template-rows: 100%;
+  grid-gap: 50px;
   width: 90%;
   margin: auto;
   align-content: center;
@@ -16,6 +17,7 @@ html {
   --image-width: 9vw; /* calculated based on width of first column + width of .upperLeft */
   --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
   --featured-image-max-width: 72vw;
+  --carouselHeight: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
 
 }
 
@@ -26,13 +28,15 @@ html {
 }
 
 .imageModule {
-  grid-column: 3;
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: auto 0;
+
   max-width: var(--featured-image-max-width);
-  max-height: var(--featured-image-max-width);
+  max-height: var(--carouselHeight);
   overflow: scroll;
 }
 
@@ -42,13 +46,17 @@ html {
   flex-direction: column;
   flex-wrap: nowrap;
   gap: 12px;
+  align-items: center;
+  justify-content: center;
 
 }
 
 
 .carouselContainer {
-  height: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
+  height: var(--carouselHeight);
   width: var(--image-width);
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -71,6 +79,7 @@ img {
 
 .upArrow, .downArrow {
   max-width: 50%;
+  margin: 30px 0;
   cursor: pointer;
   align-self: center;
 }
