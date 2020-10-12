@@ -48,13 +48,10 @@ class UpperLeft extends React.Component {
   increasePosition(newPosition) {
     const { position, images } = this.state;
     const max = images.length - 6;
-    // const newPosition = position + 6 < max ? position + 6 : max;
+
     this.setState({
       position: newPosition,
     });
-    // scrollToComponent(document.getElementById(`image${newPosition}`), { offset: 0, align: 'top', duration: 500, ease:'inCirc'});
-    // document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
     if (newPosition === max) {
       document.getElementById('downArrow').classList.add(inactive);
     }
@@ -67,14 +64,9 @@ class UpperLeft extends React.Component {
   decreasePosition(newPosition) {
     const min = 0;
     const { position, images } = this.state;
-    // const newPosition = position - 6 > min ? position - 6 : min;
     this.setState({
       position: newPosition,
     });
-    // scrollToComponent(document.getElementById(`image${newPosition}`), { offset: 0, align: 'top', duration: 500, ease:'inCirc'});
-    // document.getElementsByTagName('body')[0].style.overflow = 'hidden';
-    // document.getElementById(`image${newPosition}`).scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    // document.getElementsByTagName('body')[0].style.overflow = 'scroll';
 
     if (newPosition === 0) {
       document.getElementById('upArrow').classList.add(inactive);

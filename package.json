@@ -33,7 +33,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-virtuoso": "^0.20.0"
+    "react-virtuoso": "^0.20.0",
+    "styled-components": "^5.2.0"
   },
   "pre-commit": [
     "lint",

@@ -55,7 +55,8 @@ const Carousel = (props) => {
           });
           props.handleClickUp(newPosition);
           return false;
-        }} />
+        }}
+        />
 
       <div>
         <Virtuoso

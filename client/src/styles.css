@@ -11,33 +11,19 @@
 
 html {
   --image-margin: 5px;
-  --image-aspect-ratio: 1.25;
   --border-thickness: 1px;
   --number-of-images: 6;
   --image-width: 9vw; /* calculated based on width of first column + width of .upperLeft */
-  --image-height: calc(var(--image-width) / var(--image-aspect-ratio));
+  /* --image-height: calc(var(--image-width) / var(--image-aspect-ratio)); */
   --featured-image-max-width: 72vw;
-  --carouselHeight: calc((var(--image-height) + var(--image-margin) + ( 2 * var(--border-thickness))) * var(--number-of-images));
-
+  --carouselHeight: 65vh;
+  --image-height: calc((var(--carouselHeight) - ((2 * var(--border-thickness)) + var(--image-margin)) * var(--number-of-images))/6);
 }
 
 /*make scrollbar in carousel transparent */
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
-}
-
-.imageModule {
-  grid-column: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto 0;
-
-  max-width: var(--featured-image-max-width);
-  max-height: var(--carouselHeight);
-  overflow: scroll;
 }
 
 .carouselModule {
@@ -48,7 +34,16 @@ html {
   gap: 12px;
   align-items: center;
   justify-content: center;
-
+}
+.imageModule {
+  grid-column: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto 0;
+  height: var(--carouselHeight);
 }
 
 
@@ -79,7 +74,7 @@ img {
 
 .upArrow, .downArrow {
   max-width: 50%;
-  margin: 30px 0;
+  margin: 5px 0;
   cursor: pointer;
   align-self: center;
 }
@@ -90,21 +85,4 @@ img {
 
 .upArrow.inactive, .downArrow.inactive {
   cursor: default;
-}
-
-.mainImage {
-  transition: transform 0.2s;
-  position: relative;
-}
-
-.zoomedOut:hover {
-  cursor: zoom-in;
-}
-
-.zoomedIn:hover {
-  cursor: zoom-out;
-}
-
-.zoomedIn {
-  transform: scale(1.8);
 }
