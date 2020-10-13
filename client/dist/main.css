@@ -14,10 +14,9 @@ html {
   --border-thickness: 1px;
   --number-of-images: 6;
   --image-width: 9vw; /* calculated based on width of first column + width of .upperLeft */
-  /* --image-height: calc(var(--image-width) / var(--image-aspect-ratio)); */
   --featured-image-max-width: 72vw;
-  --carouselHeight: 65vh;
-  --image-height: calc((var(--carouselHeight) - ((2 * var(--border-thickness)) + var(--image-margin)) * var(--number-of-images))/6);
+  --carouselHeight: 80vh;
+  --image-height: calc((var(--carouselHeight) - ((2 * var(--border-thickness)) + var(--image-margin)) * var(--number-of-images))/var(--number-of-images));
 }
 
 /*make scrollbar in carousel transparent */
@@ -35,6 +34,7 @@ html {
   align-items: center;
   justify-content: center;
 }
+
 .upperLeft__styles__imageModule {
   grid-column: 2;
   position: relative;
@@ -45,7 +45,6 @@ html {
   margin: auto 0;
   height: var(--carouselHeight);
 }
-
 
 .upperLeft__styles__carouselContainer {
   height: var(--carouselHeight);
@@ -73,7 +72,7 @@ img {
 }
 
 .upperLeft__styles__upArrow, .upperLeft__styles__downArrow {
-  max-width: 50%;
+  max-width: 30%;
   margin: 5px 0;
   cursor: pointer;
   align-self: center;

@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
-import styled, { css, createGlobalStyle } from 'styled-components';
-import { mainImage, imageModule, zoomedIn, zoomedOut } from '../styles.css';
+import styled from 'styled-components';
+import { imageModule } from '../styles.css';
 
-// const StyledImage = styled.div`
-//   backgroundImage: url(${props => props.image}),
-//   backgroundSize: ${props => (props.zoom ? 'auto' : 'contain')},
-//   cursor:${props => (props.zoom ? 'zoom-out' : 'zoom-in')},
-//   backgroundRepeat: no-repeat,
-//   display: block,
-//   position: relative,
-//   backgroundPosition: ${props => (props.zoom ? 100 * props.x : 0)}% ${props => (props.zoom ? 100 * props.y : 0)}%,
-// `;
-
-const StyledImage = styled.div(props => ({
+const StyledImage = styled.div((props) => ({
   backgroundImage: `url(${props.image})`,
   backgroundSize: `${props.zoom ? 'auto' : 'contain'}`,
   cursor: `${props.zoom ? 'zoom-out' : 'zoom-in'}`,
